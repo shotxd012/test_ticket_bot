@@ -1,0 +1,28 @@
+{
+  "name": "vazha-3.0",
+  "version": "3.0.0",
+  "description": "A multi-server ticket bot for Discord",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "deploy": "node src/utils/commandDeployer.js"
+  },
+  "author": "Vazha",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/builders": "^1.7.0",
+    "@discordjs/rest": "^2.2.0",
+    "axios": "^1.13.2",
+    "chalk": "^4.1.2",
+    "discord.js": "^14.14.0",
+    "dotenv": "^16.0.0",
+    "mongoose": "^8.0.0",
+    "node-cache": "^5.1.2",
+    "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  },
+  "type": "commonjs"
+}
