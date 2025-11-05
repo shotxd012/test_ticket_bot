@@ -70,14 +70,13 @@ module.exports = {
             } else if (subcommand === 'delete') {
                 try {
                     await interaction.deferReply({ ephemeral: true });
+                    await interaction.editReply({ content: 'Ticket will be deleted...' });
                     await deleteTicket(interaction.client, ticket);
-                    await interaction.editReply({ content: 'Ticket deleted successfully.' });
                 } catch (error) {
                     console.error('Error deleting ticket:', error);
                     try {
-                        await interaction.editReply({ content: 'An error occurred while deleting the ticket.' });
-                    } catch (replyError) {
-                        // Interaction likely expired
+                        await interaction.channel.send({ content: 'An error occurred while deleting the ticket.' });
+                    } catch (sendError) {
                         return;
                     }
                 }

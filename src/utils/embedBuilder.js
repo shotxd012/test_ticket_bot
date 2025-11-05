@@ -1,10 +1,12 @@
 const COMPONENT_FLAGS = 1 << 15;
 
-function createTicketContainer(ticket, buttons = []) {
+function createTicketContainer(ticket, buttons = [], greeting = '', userId = '') {
+    const greetingText = greeting && userId ? `${greeting} <@${userId}>` : '';
+    
     const components = [
         {
             type: 10,
-            content: `# 🎫 Ticket #${ticket.ticketId.substring(0, 8)}\n**Created by:** <@${ticket.creatorId}> • **Status:** \`${ticket.status}\``
+            content: `# 🎫 Ticket #${ticket.ticketId.substring(0, 8)}\n**Created by:** <@${ticket.creatorId}> • **Status:** \`${ticket.status}\`${greetingText ? `\n\n${greetingText}` : ''}`
         },
         {
             type: 14,
